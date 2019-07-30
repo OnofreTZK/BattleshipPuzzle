@@ -1,1 +1,1 @@
-# BattleshipPuzzle
+# Battleship Puzzle
