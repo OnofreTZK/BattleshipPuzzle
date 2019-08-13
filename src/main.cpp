@@ -4,20 +4,33 @@
 int main ( int argc, char const *argv[])
 {
     system("clear");
-    
-    if ( argc != 4 )
+
+    size_t games; // Qntd de jogos
+    size_t rows; // Qntd de linhas
+    size_t columns; // Qntd de colunas
+
+    if( argc < 2 or argc > 6 )// Verifica a quantidade válida de argumentos para a execução.
     {
-        std::cout << "\x1b[91merror: \x1b[0mQuantidade de parâmetros inválida! por favor siga o formato:\n"
-                  << "\t\x1b[32m./executável  \x1b[0m<colunas> <linhas> <quantidade de jogos>\n";
+        printHelp();
         return EXIT_FAILURE;
     }
-    else if ( atoi(argv[1]) < 7 or atoi(argv[1]) > 16 or atoi(argv[2]) < 7 or atoi(argv[2]) > 16 )
+    else if( argc == 2 and ( atoi(argv[1]) >= 1 or atoi(argv[1]) <= 100 ) )
     {
-        std::cout << "\x1b[93maviso: \x1b[0m Por favor, entre com valores no intervalo de ( \x1b[32m7 \x1b[0m,\x1b[32m16 \x1b[0m) para as colunas e linhas.\n";
+        games = atoi(argv[1]);
+        std::cout << "\n Default number for rows and columns: 10x10\n";
+    }
+    else if( atoi(argv[2]) < 7 or atoi(argv[2]) > 16 or atoi(argv[4]) < 7 or atoi(argv[4]) > 16 )
+    {
+        printHelp();
         return EXIT_FAILURE;
-    } 
+    }
+    else if( strcmp( argv[1], "--rows" ) != 0 or strcmp( argv[3], "--cols" ) != 0 )
+    {
+        printHelp();
+        return EXIT_FAILURE;
+    }
 
-    table_generate( atoi(argv[1]), atoi(argv[2]) ); 
+    //table_generate( atoi(argv[1]), atoi(argv[2]) ); 
 
     return EXIT_SUCCESS;
 }

@@ -23,7 +23,7 @@ void table_generate( int coluna, int linha )
     {
         for ( unsigned int j = 0; j < coluna; j++ )
         {
-            std::cout << "\x1b[96m=\x1b[0m ";
+            std::cout <<" + ";
         }
         std::cout << std::endl;
     } 
