@@ -1,5 +1,5 @@
 #include "verify.h"
-#include "boats.h"
+#include "ships.h"
 
 
 #define MAX_ROW 16
@@ -39,11 +39,18 @@ int main ( int argc, char const *argv[])
         games = atoi(argv[1]);
         std::cout << "\nUsing default number for rows and columns: 10x10\n\n";
     }
-    else if( atoi(argv[2]) < 7 or atoi(argv[2]) > 16 or atoi(argv[4]) < 7 or atoi(argv[4]) > 16 )// Verificar o intervalo permitido pelo programa para linhas e colunas.
+    else if( atoi(argv[2]) < MIN_ROW or atoi(argv[2]) > MAX_ROW )// Verificar o intervalo permitido pelo programa para linhas e colunas.
     {
+        std::cout << "Number of rows is out of range!\n" << std::endl;
         printHelp();
         return EXIT_FAILURE;
     }
+    else if( atoi(argv[4]) < MIN_COL or atoi(argv[4]) > MAX_COL )
+    {
+        std::cout << "Number of columns is out of range!\n" << std::endl;
+        printHelp();
+        return EXIT_FAILURE;
+    } 
     else if( strcmp( argv[1], "--rows" ) != 0 or strcmp( argv[3], "--cols" ) != 0 ) //Verificar se o usuário entrou com os argumentos certo para informar as linhas e colunas.
     {
         printHelp();
@@ -60,7 +67,7 @@ int main ( int argc, char const *argv[])
     std::cout << "Number of rows: " << rows << std::endl;
     std::cout << "Number of columns: " << columns << std::endl;
 
-    Boat battleship{ 'B', 4 };
+    Ship battleship{ 'B', 4 };
 
     std::cout << std::endl << "Ship ID: " << battleship.ID << std::endl << "Ship Length: " << battleship.length << std::endl; 
 
