@@ -11,11 +11,12 @@
 
 class Boat
 {
-    private:
+    public:
         char ID; // Identificar o tipo do barco --> B: Battleship | D: Destroyer | C: Cruiser | S: Submarine.
         size_t length; // tamanho do barco
-    public:
-        void set_values( char BID, size_t Blength )
+        int x, y;
+        char direction;
+        Boat( char BID, size_t Blength )
         {
             ID = BID;
             length = Blength;

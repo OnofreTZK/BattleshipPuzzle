@@ -41,10 +41,10 @@ int main ( int argc, char const *argv[])
     std::cout << "Quantidade de linhas: " << rows << std::endl;
     std::cout << "Quantidade de colunas: " << columns << std::endl;
 
-    Boat battleship;
-    battleship = create_Battleship( battleship );
+    Boat battleship{ 'B', 4 };
+    //battleship = create_Battleship( battleship );
 
-    std::cout << std::endl << "Identificação do barco: " << battleship.ID() << std::endl << "Tamanho do barco: " << battleship.length() << std::endl; 
+    std::cout << std::endl << "Identificação do barco: " << battleship.ID << std::endl << "Tamanho do barco: " << battleship.length << std::endl; 
 
     return EXIT_SUCCESS;
 }

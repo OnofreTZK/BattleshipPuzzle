@@ -7,7 +7,7 @@ Boat create_Battleship( Boat boat )
     char b_id = 'B';
     size_t b_length = 4;
 
-    boat.set_values( b_id, b_length );
+    Boat battleship{ b_id, b_length };
 
     return boat;
 }
