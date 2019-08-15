@@ -1,4 +1,5 @@
-#include "table.h"
+#include "verify.h"
+#include "boats.h" 
 
 
 int main ( int argc, char const *argv[])
@@ -14,7 +15,7 @@ int main ( int argc, char const *argv[])
         printHelp();
         return EXIT_FAILURE;
     }
-    else if( argc == 2 and ( atoi(argv[1]) >= 1 or atoi(argv[1]) <= 100 ) and ( isdigit(atoi(argv[1])) == 0 ) )// Se o numero de argumentos for igual a 2 (<executável> e quantidade de jogos ) games recebe o valor do argv[1]. 
+    else if( argc == 2 and ( atoi(argv[1]) >= 1 or atoi(argv[1]) <= 100 ) )// Se o numero de argumentos for igual a 2 (<executável> e quantidade de jogos ) games recebe o valor do argv[1]. 
     {
         games = atoi(argv[1]);
         std::cout << "\nUsing default number for rows and columns: 10x10\n\n";
@@ -40,7 +41,10 @@ int main ( int argc, char const *argv[])
     std::cout << "Quantidade de linhas: " << rows << std::endl;
     std::cout << "Quantidade de colunas: " << columns << std::endl;
 
-    //table_generate( atoi(argv[1]), atoi(argv[2]) ); 
+    Boat battleship;
+    battleship = create_Battleship( battleship );
+
+    std::cout << std::endl << "Identificação do barco: " << battleship.ID() << std::endl << "Tamanho do barco: " << battleship.length() << std::endl; 
 
     return EXIT_SUCCESS;
 }
