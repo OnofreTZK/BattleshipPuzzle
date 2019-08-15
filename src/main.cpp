@@ -1,21 +1,40 @@
 #include "verify.h"
-#include "boats.h" 
+#include "boats.h"
+
+
+#define MAX_ROW 16
+#define MAX_COL 16
+#define MAX_NPUZZLE 100
+
+#define MIN_ROW 7
+#define MIN_COL 7
+#define NPUZZLE 1
+
+#define DFT_ROW 10
+#define DFT_COL 10
 
 
 int main ( int argc, char const *argv[])
 {
     system("clear");
 
-    size_t games = 1; // Qntd de jogos
-    size_t rows = 10; // Qntd de linhas
-    size_t columns = 10; // Qntd de colunas
+    size_t games = NPUZZLE; // Qntd de jogos
+    size_t rows = DFT_ROW; // Qntd de linhas
+    size_t columns = DFT_COL; // Qntd de colunas
 
-    if( argc < 2 or argc > 6 )// Verifica a quantidade válida de argumentos para a execução.
+    if( argc < 2 )// Verifica a quantidade válida de argumentos para a execução.
     {
+        std::cout << "Too few arguments!\n" << std::endl;
         printHelp();
         return EXIT_FAILURE;
     }
-    else if( argc == 2 and ( atoi(argv[1]) >= 1 or atoi(argv[1]) <= 100 ) )// Se o numero de argumentos for igual a 2 (<executável> e quantidade de jogos ) games recebe o valor do argv[1]. 
+    else if( argc > 6 )
+    {
+        std::cout << "Too many arguments!\n" << std::endl;
+        printHelp();
+        return EXIT_FAILURE;
+    }
+    else if( argc == 2 and ( atoi(argv[1]) >= NPUZZLE or atoi(argv[1]) <= MAX_NPUZZLE ) )// Se o numero de argumentos for igual a 2 (<executável> e quantidade de jogos ) games recebe o valor do argv[1].
     {
         games = atoi(argv[1]);
         std::cout << "\nUsing default number for rows and columns: 10x10\n\n";
@@ -37,14 +56,13 @@ int main ( int argc, char const *argv[])
         columns = atoi(argv[4]);
     }
 
-    std::cout << "quantidade de jogos: " << games << std::endl;
-    std::cout << "Quantidade de linhas: " << rows << std::endl;
-    std::cout << "Quantidade de colunas: " << columns << std::endl;
+    std::cout << "Number of puzzles: " << games << std::endl;
+    std::cout << "Number of rows: " << rows << std::endl;
+    std::cout << "Number of columns: " << columns << std::endl;
 
     Boat battleship{ 'B', 4 };
-    //battleship = create_Battleship( battleship );
 
-    std::cout << std::endl << "Identificação do barco: " << battleship.ID << std::endl << "Tamanho do barco: " << battleship.length << std::endl; 
+    std::cout << std::endl << "Ship ID: " << battleship.ID << std::endl << "Ship Length: " << battleship.length << std::endl; 
 
     return EXIT_SUCCESS;
 }
