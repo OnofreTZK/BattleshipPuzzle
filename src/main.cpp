@@ -67,9 +67,7 @@ int main ( int argc, char const *argv[])
     std::cout << "Number of rows: " << rows << std::endl;
     std::cout << "Number of columns: " << columns << std::endl;
 
-    Ship battleship{ 'B', 4 };
-
-    std::cout << std::endl << "Ship ID: " << battleship.ID << std::endl << "Ship Length: " << battleship.length << std::endl; 
+    
 
     return EXIT_SUCCESS;
 }
