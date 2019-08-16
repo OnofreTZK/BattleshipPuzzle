@@ -9,25 +9,27 @@
 #include <string>
 #include <cctype>
 
+using std::vector;
+
 class Ship
 {
     public:
         char ID; // Identificar o tipo do barco --> B: Battleship | D: Destroyer | C: Cruiser | S: Submarine.
         size_t length; // tamanho do barco
-        int srow, scol; // Coordenadas do inicio do barco. 
+        int sRow, sCol; // Coordenadas do inicio do barco. 
         char orientation; // direção do barco ( horizontal, vertical e nula (U) no caso do submarino.
         
-        Ship( char SID, size_t Slength )
+        Ship( char sID, size_t sLength )
         {
-            ID = SID;
-            length = Slength;
+            ID = sID;
+            length = sLength;
         }
        // função para inserir os valores das coordenadas e da orientação do barco --> será usada no processo de criação do tabuleiro.
-        void set_values( int sx, int sy, char sorientation )
+        void set_values( int sX, int sY, char sOrientation )
         {
-            srow = sx;
-            scol = sy;
-            orientation = sorientation;
+            sRow = sX;
+            sCol = sY;
+            orientation = sOrientation;
         }
 };
 
@@ -35,7 +37,7 @@ class Board
 {
     public:
         // vector para guardar toda a armada e auxiliar no posicionamento de cada barco.
-        std::vector< Ship > armada = {
+        vector< Ship > armada = {
         Ship { 'B', 4 },
         Ship { 'D', 3 },
         Ship { 'D', 3 },
@@ -47,12 +49,16 @@ class Board
         Ship { 'S', 1 },
         Ship { 'S', 1 } };
 
+		vector< vector < char > > board = {
+
+		};
+
         int row, column;
 
-        Board( int brow, int bcolumn )
+        Board( int bRow, int bColumn )
         {
-            row = brow;
-            column = bcolumn;
+            row = bRow;
+            column = bColumn;
         }
 
 };
