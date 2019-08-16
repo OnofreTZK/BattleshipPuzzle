@@ -1,6 +1,8 @@
 #include "verify.h"
 #include "ships.h"
 
+#include <cstring>
+
 
 #define MAX_ROW 16
 #define MAX_COL 16
