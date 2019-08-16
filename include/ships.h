@@ -3,14 +3,12 @@
 
 #include "verify.h"
 
-//funções para preencher a class ship com as informações de cada tipo de barco.
-Ship create_Battleship( Ship ship );
+using std::vector;
 
-Ship creat_Destroyer( Ship ship );
+// Função para verificar se o barco está em uma posição válida.
+bool validation( vector< vector< char > > &board, int j, Ship ship );
 
-Ship create_Cruiser( Ship ship );
-
-Ship create_Submarine( Ship ship );
+Board create_Board( Board board, size_t row, size_t col );
 
 #endif
 

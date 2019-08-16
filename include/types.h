@@ -8,6 +8,8 @@
 #include <vector>
 #include <string>
 #include <cctype>
+#include <cstdlib>
+#include <ctime>
 
 using std::vector;
 

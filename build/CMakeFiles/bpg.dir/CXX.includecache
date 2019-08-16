@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/ships.h
+verify.h
+../include/verify.h
+
+../include/types.h
+iostream
+-
+iomanip
+-
+sstream
+-
+fstream
+-
+vector
+-
+string
+-
+cctype
+-
+cstdlib
+-
+ctime
+-
+
+../include/verify.h
+types.h
+../include/types.h
+
+/Users/onofret/Documents/BattleshipPuzzle/src/ships.cpp
+ships.h
+/Users/onofret/Documents/BattleshipPuzzle/src/ships.h
+

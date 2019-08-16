@@ -1,0 +1,3 @@
+/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles/rebuild_cache.dir
+/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles/edit_cache.dir
+/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles/bpg.dir

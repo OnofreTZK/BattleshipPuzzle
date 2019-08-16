@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -Wall -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/bpg.dir/src/main.cpp.o CMakeFiles/bpg.dir/src/ships.cpp.o CMakeFiles/bpg.dir/src/verify.cpp.o  -o bpg 
