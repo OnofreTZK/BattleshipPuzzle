@@ -1,8 +1,6 @@
 #include "verify.h"
 #include "ships.h"
 
-#include <cstring>
-
 
 #define MAX_ROW 16
 #define MAX_COL 16
@@ -36,9 +34,16 @@ int main ( int argc, char const *argv[])
         printHelp();
         return EXIT_FAILURE;
     }
-    else if( argc == 2 and ( atoi(argv[1]) >= NPUZZLE or atoi(argv[1]) <= MAX_NPUZZLE ) )// Se o numero de argumentos for igual a 2 (<executável> e quantidade de jogos ) games recebe o valor do argv[1].
+    else if( argc == 2 )// Se o numero de argumentos for igual a 2 (<executável> e quantidade de jogos ) games recebe o valor do argv[1].
     {
         games = atoi(argv[1]);
+
+        if( games < 1 or games > 100 )
+        {
+            printHelp();
+            return EXIT_FAILURE;
+        }
+
         std::cout << "\nUsing default number for rows and columns: 10x10\n\n";
     }
     else if( atoi(argv[2]) < MIN_ROW or atoi(argv[2]) > MAX_ROW )// Verificar o intervalo permitido pelo programa para linhas e colunas.
@@ -61,15 +66,25 @@ int main ( int argc, char const *argv[])
     else if( argc == 6 and ( strcmp( argv[1], "--rows" ) == 0 ) and ( strcmp( argv[3], "--cols" ) == 0 ) ) // ultima verificação, se estiver tudo certo os valos dos parametros são atribuidos.
     {
         games = atoi(argv[5]);
+
+        if( games < 1 or games > 100 )
+        {
+            printHelp();
+            return EXIT_FAILURE;
+        }
+
         rows = atoi(argv[2]);
         columns = atoi(argv[4]);
     }
+
+
 
     std::cout << "Number of puzzles: " << games << std::endl;
     std::cout << "Number of rows: " << rows << std::endl;
     std::cout << "Number of columns: " << columns << std::endl;
 
-    
+    std::string teste = "\u25A0" ;
+    std::cout << "\n\u25C0" << teste << teste << "\u25B6" <<  std::endl;
 
     return EXIT_SUCCESS;
 }
