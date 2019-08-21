@@ -29,6 +29,10 @@ cstdlib
 -
 ctime
 -
+algorithm
+-
+cstring
+-
 
 ../include/verify.h
 types.h
