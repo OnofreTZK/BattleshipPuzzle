@@ -44,27 +44,176 @@ Ship *val_Orientation( Board *board, int row, int col, Ship *ship )
     }
 
     ship->set_values( row, col, 'D', 0 ); // nenhuma posição válida, então a posição é negada.
-    return ship;
+    return ship; // ●.
 }
 
 
-
-void positioning( Board board, int row, int col, Ship ship )
+ 
+bool aux_positioning_horizontal( Board *board, int row, int col, Ship ship, int direction )
 {
-   // if( board.matrix[i][j] != "#"
+    if( ship.ID == 'H' )
+    {
+        if( direction == 1 )
+        {
+            for( int i = row - 1; i < row + 1; i++ )
+            {
+                for( int j = col - 1; j < col + ship.length; j++ )
+                {
+                    if( j == col or j == col + 1 or j == col + 2 or j == col + 3 )
+                    {
+                        continue;
+                    }
+
+                    if( board->matrix[i][j] != "#" )
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if( direction == -1 )
+        {
+            for( int i = row - 1; i < row + 1; i++ )
+            {
+                for( int j = col - 1; j > col - ship.length; j-- )
+                {
+                  if( i < 0 or i > board->row or j < 0 or j > board->column )
+                  {
+                      continue;
+                  }  
+
+                  if( j == col or j == col - 1 or j == col - 2 or j == col - 3 )
+                    {
+                        continue;
+                    }
+
+                    if( board->matrix[i][j] != "#" )
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
+    return true;
 }
 
+
+
+
+bool val_positioning( Board *board, int row, int col, Ship ship )
+{
+    if( ship.ID == 'H' )
+    {
+        switch ( ship.direction )
+        {
+          case 1:
+            // laço.
+            break;
+          case -1:
+            // laço.
+            break;
+          default:
+            return false;
+        }
+    }
+    else if( ship.ID == 'V' )
+    {
+        switch ( ship.direction )
+        {
+          case 2:
+            // laço.
+            break;
+          case -2:
+            // laço.
+            break;
+          default:
+            return false;
+        }
+    } 
+    return false;
+}
+
+
+
+
+bool positioning( Board *board, int row, int col, Ship ship )
+{
+      if( ship.ID == 'H' )
+      {
+          switch ( ship.direction )
+          {
+            case  1:
+              // laço.
+              break;
+            case  -1:
+              // laço.
+              break;
+            default:
+              return false;
+          }
+      }
+      else if( ship.ID == 'V' )
+      {
+         switch ( ship.direction )
+         {
+           case  2:
+              // laço.
+              break;
+           case  -2:
+              // laço.
+              break;
+           default:
+              return false;
+         }
+      } 
+      return false;
+}
 
 
 
 Board *create_Board( Board *board, size_t row, size_t col )
 {
-    int j; // iterador que terá seu valor escolhido aleatoriamente. 
-    
+    int x, y; // iteradores que terão seu valor escolhido aleatoriamente.
+    srand( time( NULL ) );
+    bool permission, control; // controlar o laço de verificação.
+
     for( int vec = 0; vec < board->armada.size(); vec++ ) // posicionando cada elemento da armada do maior para o menor.
     {
-           srand( time( NULL ) ); //controlar a seed da função rand para que não se repita.
-           j = rand() % col-1; // valor aleatório do inicio de cada barco(valores x e y da class ship )
+        while( permission == false )
+        {
+            // srand( time( NULL ) ); //controlar a seed da função rand para que não se repita.
+            x = rand() % row - 1;
+            y = rand() % col - 1; // valor aleatório do inicio de cada barco(valores x e y da class ship )
+
+            control = validation( board, x, y, &board->armada[vec] );
+
+            if( control == false )
+            {
+                permission = false;
+                continue;
+            }
+
+            board->armada[vec] = *val_Orientation( board, x, y, &board->armada[vec] );
+
+            if( board->armada[vec].orientation == 'D')
+            {
+                permission = false;
+                continue;
+            }
+
+            control = val_positioning( board, x, y, board->armada[vec] );
+
+            if( control == false )
+            {
+                permission = false;
+                continue;
+            }
+
+
+
+        }
 
     } 
     return board;

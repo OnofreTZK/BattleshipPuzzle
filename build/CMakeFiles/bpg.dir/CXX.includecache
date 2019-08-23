@@ -33,6 +33,8 @@ algorithm
 -
 cstring
 -
+random
+-
 
 ../include/verify.h
 types.h
