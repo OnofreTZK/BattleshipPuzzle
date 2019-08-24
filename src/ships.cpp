@@ -53,13 +53,19 @@ bool aux_positioning_horizontal( Board *board, int row, int col, Ship ship, int 
 {
     if( ship.ID == 'H' )
     {
-        if( direction == 1 )
+        if( ship.direction == 1 )
         {
             for( int i = row - 1; i < row + 1; i++ )
             {
                 for( int j = col - 1; j < col + ship.length; j++ )
                 {
-                    if( j == col or j == col + 1 or j == col + 2 or j == col + 3 )
+
+                    if( i < 0 or i > board->row - 1 or j < 0 or j > board->column - 1 )
+                    {
+                        continue;
+                    }
+
+                    if( i == row and (j >= col or j <= col + ship.length - 1 ) )
                     {
                         continue;
                     }
@@ -71,18 +77,18 @@ bool aux_positioning_horizontal( Board *board, int row, int col, Ship ship, int 
                 }
             }
         }
-        else if( direction == -1 )
+        else if( ship.direction == -1 )
         {
             for( int i = row - 1; i < row + 1; i++ )
             {
-                for( int j = col - 1; j > col - ship.length; j-- )
+                for( int j = col + 1; j > col - ship.length; j-- )
                 {
-                  if( i < 0 or i > board->row or j < 0 or j > board->column )
+                  if( i < 0 or i > board->row - 1 or j < 0 or j > board->column - 1 )
                   {
                       continue;
-                  }  
+                  }
 
-                  if( j == col or j == col - 1 or j == col - 2 or j == col - 3 )
+                  if( i == row and ( j <= col or j >= col - ( ship.length - 1 ) ) )
                     {
                         continue;
                     }
@@ -102,20 +108,86 @@ bool aux_positioning_horizontal( Board *board, int row, int col, Ship ship, int 
 
 
 
-bool val_positioning( Board *board, int row, int col, Ship ship )
+
+
+bool aux_positioning_vertical( Board *board, int row, int col, Ship ship, int direction )
+{
+    if( ship.ID == 'V' )
+    {
+        if( ship.direction == 2 )
+        {
+            for( int i = row - 1; i < row + ship.length; i++ )
+            {
+                for( int j = col - 1; j < col + 1; j++ )
+                {
+
+                    if( i < 0 or i > board->column - 1 or j < 0 or j > board->row - 1 )
+                    {
+                        continue;
+                    }
+
+                    if( j == col and (i >= row or i <= row + ship.length - 1 ) )
+                    {
+                        continue;
+                    }
+
+                    if( board->matrix[i][j] != "#" )
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        else if( ship.direction == -2 )
+        {
+            for( int i = row + 1; i > row + ship.length; i-- )
+            {
+                for( int j = col - 1; j < col + 1 ; j++ )
+                {
+                  if( i < 0 or i > board->column - 1 or j < 0 or j > board->row - 1 )
+                  {
+                      continue;
+                  }
+
+                  if( j == col and ( i <= row or i >= row - ( ship.length - 1) ) )
+                    {
+                        continue;
+                    }
+
+                    if( board->matrix[i][j] != "#" )
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+
+
+int val_positioning( Board *board, int row, int col, Ship ship )
 {
     if( ship.ID == 'H' )
     {
         switch ( ship.direction )
         {
           case 1:
-            // laço.
+            if( aux_positioning_horizontal( board, row, col, ship, ship.direction ) == true )
+            {
+                return 1;
+            };
             break;
           case -1:
-            // laço.
+            if( aux_positioning_horizontal( board, row, col, ship, ship.direction ) == true )
+            {
+                return -1;
+            }
             break;
           default:
-            return false;
+            return 0;
         }
     }
     else if( ship.ID == 'V' )
@@ -123,16 +195,23 @@ bool val_positioning( Board *board, int row, int col, Ship ship )
         switch ( ship.direction )
         {
           case 2:
-            // laço.
+            if( aux_positioning_vertical( board, row, col, ship, ship.direction ) == true )
+            {
+                return 2;
+            }
             break;
           case -2:
-            // laço.
+            if( aux_positioning_vertical( board, row, col, ship, ship.direction ) == true )
+            {
+                return -2;
+            }
             break;
           default:
-            return false;
+            return 0;
         }
-    } 
-    return false;
+    }
+
+    return 0;
 }
 
 
@@ -177,19 +256,22 @@ Board *create_Board( Board *board, size_t row, size_t col )
 {
     int x, y; // iteradores que terão seu valor escolhido aleatoriamente.
     srand( time( NULL ) );
-    bool permission, control; // controlar o laço de verificação.
+    bool permission;
+    int  control; // controlar o laço de verificação.
 
     for( int vec = 0; vec < board->armada.size(); vec++ ) // posicionando cada elemento da armada do maior para o menor.
     {
+        permission = false;
+
         while( permission == false )
         {
             // srand( time( NULL ) ); //controlar a seed da função rand para que não se repita.
             x = rand() % row - 1;
             y = rand() % col - 1; // valor aleatório do inicio de cada barco(valores x e y da class ship )
 
-            control = validation( board, x, y, &board->armada[vec] );
+            permission = validation( board, x, y, &board->armada[vec] );
 
-            if( control == false )
+            if( permission == false )
             {
                 permission = false;
                 continue;
@@ -205,7 +287,7 @@ Board *create_Board( Board *board, size_t row, size_t col )
 
             control = val_positioning( board, x, y, board->armada[vec] );
 
-            if( control == false )
+            if( control == 0 )
             {
                 permission = false;
                 continue;
