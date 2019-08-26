@@ -24,7 +24,7 @@ class Ship
         int sRow, sCol; // Coordenadas do inicio do barco. 
         char orientation; // direção do barco ( horizontal, vertical e nula (U) no caso do submarino.
         int direction; // informar para a função de preenchimento em qual direção percorrer.
-        
+
         Ship( char sID, size_t sLength )
         {
             ID = sID;
@@ -73,12 +73,48 @@ class Board
            for( int i = 0; i < row; i++ )
            {
               for( int j = 0; j < column; j++ )
-                 matrix[i][j] = " # ";
+                 matrix[i][j] = "#";
            }
 
         }
 
-        
+        void set_position( Ship *ship )
+        {
+            if( ship->orientation == 'H' )
+            {
+                if( ship->direction == 1 )
+                {
+                    for( int j = ship->sCol; j < ship->sCol + ship->length; j++ )
+                    {
+                        matrix[ship->sRow][j] = ship->ID;
+                    }
+                }
+                else if( ship->direction == -1 )
+                { 
+                    for( int j = ship->sCol; j > ship->sCol - ship->length; j-- )
+                    {
+                        matrix[ship->sRow][j] = ship->ID;
+                    }
+                }
+            }
+            else if( ship->orientation == 'V' )
+            {
+                if( ship->direction == 2 )
+                {
+                    for( int i = ship->sRow; i < ship->sRow + ship->length; i++ )
+                    {
+                        matrix[i][ship->sCol] = ship->ID;
+                    }
+                }
+                else if( ship->direction == -2 )
+                {
+                    for( int i = ship->sRow; i > ship->sRow - ship->length; i-- )
+                    {
+                        matrix[i][ship->sCol] = ship->ID;
+                    }
+                } 
+            }
+        }
 
 };
 
