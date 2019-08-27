@@ -7,9 +7,11 @@
 */ 
 
 // writeBPMatrix writes the file containing the matrix-format puzzles
-void writeBPMatrix(Board *board, int puzNum, int rowNum, int colNum);
+void writeBPMatrix( Board board, int puzNum, int rowNum, int colNum );
 
 // writeBPArmada writes the file containing the armada-format puzzles
-void writeBPArmada();
+void writeBPArmada( Manager manager, int puzNum );
+
+void puzzle_Generator( int row, int col, int games );
 
 #endif

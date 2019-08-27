@@ -44,6 +44,22 @@ class Ship
 class Board
 {
     public:
+
+        bool operator==( Board board )
+        {
+            for( int i = 0; i < board.row; i++ )
+            {
+                for( int j = 0; j < board.column; j++ )
+                {
+                    if( this->matrix[i][j] == board.matrix[i][j] )
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
         // vector para guardar toda a armada e auxiliar no posicionamento de cada barco.
         vector< Ship > armada = {
         Ship { 'B', 4 },

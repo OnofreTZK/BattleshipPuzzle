@@ -15,9 +15,10 @@ include_directories( include )
 
 # define the sources for the project
 add_executable ( bpg
-				 src/main.cpp
-				 src/ships.cpp
-				 src/verify.cpp )
+				         src/main.cpp
+				         src/ships.cpp
+                 src/file.cpp
+				         src/verify.cpp )
 
 # define C++11 standard
 set_property (TARGET bpg PROPERTY CXX_STANDARD 11)

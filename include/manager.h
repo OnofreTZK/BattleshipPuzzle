@@ -20,7 +20,6 @@ class Manager{
            for( int i = 0; i < puzzles.size(); i++ )
            {
               puzzles[i] = Board( bRow, bColumn );
-              std::cout << "\nlinha " << puzzles[i].row << "\ncoluna  " << puzzles[i].column << std::endl;
            }
 
         }

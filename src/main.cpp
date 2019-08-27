@@ -18,9 +18,9 @@ int main ( int argc, char const *argv[])
 {
     system("clear");
 
-    size_t games = NPUZZLE; // Qntd de jogos
-    size_t rows = DFT_ROW; // Qntd de linhas
-    size_t columns = DFT_COL; // Qntd de colunas
+    int games = NPUZZLE; // Qntd de jogos
+    int rows = DFT_ROW; // Qntd de linhas
+    int columns = DFT_COL; // Qntd de colunas
 
     if( argc < 2 )// Verifica a quantidade válida de argumentos para a execução.
     {
@@ -109,6 +109,9 @@ int main ( int argc, char const *argv[])
         }
         std::cout << std::endl;
     }
+
+
+    puzzle_Generator( rows, columns, games );
 
     return EXIT_SUCCESS;
  }
