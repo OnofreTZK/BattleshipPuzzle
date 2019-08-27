@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/file.h
-manager.h
-../include/manager.h
-
-../include/manager.h
-ships.h
-../include/ships.h
-
 ../include/ships.h
 verify.h
 ../include/verify.h
@@ -50,7 +42,7 @@ chrono
 types.h
 ../include/types.h
 
-/Users/onofret/Documents/BattleshipPuzzle/src/file.cpp
-file.h
-/Users/onofret/Documents/BattleshipPuzzle/src/file.h
+/Users/onofret/Documents/BattleshipPuzzle/src/ships.cpp
+ships.h
+/Users/onofret/Documents/BattleshipPuzzle/src/ships.h
 
