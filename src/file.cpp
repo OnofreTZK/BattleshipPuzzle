@@ -77,6 +77,14 @@ void puzzle_Generator( int row, int col, int games )
 
    for( int vec = 0; vec < manager.puzzles.size(); vec++ )
    {
+      if( vec > 0 )
+      {
+          if( verify_Board( manager.puzzles, manager.puzzles[vec] , vec ) )
+          {
+              vec = vec - 2;
+          }
+      }
+
       manager.puzzles[vec] = *create_Board( &manager.puzzles[vec], row, col );
    }
 
