@@ -1,8 +1,7 @@
 #ifndef FILE_H
 #define FILE_H
 
-#include <iostream>
-#include <fstream> 
+#include "manager.h" 
 
 /*! This library contains all functions regarding file manipulation.
 */ 

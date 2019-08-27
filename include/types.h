@@ -12,7 +12,8 @@
 #include <ctime>
 #include <algorithm>
 #include <cstring>
-#include <random> 
+#include <random>
+#include <chrono> 
 
 using std::vector;
 
@@ -20,12 +21,12 @@ class Ship
 {
     public:
         char ID; // Identificar o tipo do barco --> B: Battleship | D: Destroyer | C: Cruiser | S: Submarine.
-        size_t length; // tamanho do barco
+        int length; // tamanho do barco
         int sRow, sCol; // Coordenadas do inicio do barco. 
         char orientation; // direção do barco ( horizontal, vertical e nula (U) no caso do submarino.
         int direction; // informar para a função de preenchimento em qual direção percorrer.
 
-        Ship( char sID, size_t sLength )
+        Ship( char sID, int sLength )
         {
             ID = sID;
             length = sLength;
@@ -64,18 +65,22 @@ class Board
         {
             row = bRow;
             column = bColumn;
-        
+
             // "alocando" o vector de vector usando o método resize().  
             vector< std::string > mat_rows;
             mat_rows.resize( column );
             matrix.resize( row, mat_rows );
 
-           for( int i = 0; i < row; i++ )
-           {
+           for( int i = 0; i < row; i++ ) {
               for( int j = 0; j < column; j++ )
                  matrix[i][j] = "~";
            }
+        }
 
+        Board(void) 
+        {
+          row = 0;
+          column = 0;
         }
 
         //funçao para plotar o submarino, pois não requer um laço.
