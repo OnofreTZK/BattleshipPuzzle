@@ -83,34 +83,6 @@ int main ( int argc, char const *argv[])
     std::cout << "Number of rows: " << rows << std::endl;
     std::cout << "Number of columns: " << columns << std::endl;
 
-    Board board( rows, columns ); 
-
-    std::cout << std::endl;
-    for( int i = 0; i < rows; i++ )
-    {
-        for( int j = 0; j < columns; j ++ )
-        {
-            std::cout << board.matrix[i][j] << "  ";
-        }
-        std::cout << std::endl;
-    }
-
-    board = *create_Board( &board, rows, columns );
-
-    std::string teste = " \u25A0 " ;
-    std::cout << "\n \u25C0 " << teste << teste << " \u25B6 " <<  std::endl;
-
-    std::cout << std::endl;
-    for( int i = 0; i < rows; i++ )
-    {
-        for( int j = 0; j < columns; j ++ )
-        {
-            std::cout << board.matrix[i][j] << "  ";
-        }
-        std::cout << std::endl;
-    }
-
-
     puzzle_Generator( rows, columns, games );
 
     return EXIT_SUCCESS;

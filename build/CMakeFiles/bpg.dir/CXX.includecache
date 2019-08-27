@@ -50,7 +50,9 @@ chrono
 types.h
 ../include/types.h
 
-/Users/onofret/Documents/BattleshipPuzzle/src/file.cpp
+/Users/onofret/Documents/BattleshipPuzzle/src/main.cpp
+verify.h
+/Users/onofret/Documents/BattleshipPuzzle/src/verify.h
 file.h
 /Users/onofret/Documents/BattleshipPuzzle/src/file.h
 
