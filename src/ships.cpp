@@ -5,16 +5,23 @@ using std::vector;
 // Verificar cada detalhe para o posicionamento do barco.
 bool validation( Board *board, int row, int col, Ship *ship )
 {
-    if( board->matrix[row][col] != "#" ) // verifica se a posiçao ao menos é 'agua'.
+    for( int i = row - 1; i <= row + 1; i++ )
     {
-        return false;
-    }
-    else if( board->matrix[row][col] == "#" ) // Se for 'agua' entra em uma nova etapa de testes.
-    {
-        return true;
+        for( int j = col - 1; j <= col + 1; j++ )
+        {
+            if( i < 0 or i > board->row - 1 or j < 0 or j > board->column - 1 )
+            {
+                continue;
+            }
+
+            if( board->matrix[i][j] != "~" )
+            {
+                return false;
+            }
+        }
     }
 
-    return false;
+    return true;
 }
 
 
@@ -22,25 +29,57 @@ bool validation( Board *board, int row, int col, Ship *ship )
 Ship *val_Orientation( Board *board, int row, int col, Ship *ship )
 {
     
-    if( ( row + ship->length - 1 <= board->row - 1 ) and ( board->matrix[row + ship->length - 1][col] == "#"  ) ) // Testa se a posição atual mais o resto do barco ultrapassa a borda direita da matriz ou se toca em outro barco. Resto do barco --> seu tamanho - 1.
+    if( ( row + ship->length - 1 <= board->row - 1 ) and ( board->matrix[row + ship->length - 1][col] == "~"  ) ) // Testa se a posição atual mais o resto do barco ultrapassa a borda direita da matriz ou se toca em outro barco. Resto do barco --> seu tamanho - 1.
     {
-        ship->set_values( row, col, 'V', 2 );
-        return ship;
+        if( ( row + ship->length <= board->row - 1 ) and ( board->matrix[row + ship->length][col] == "~" ) )
+        {
+            ship->set_values( row, col, 'V', 2 );
+            return ship; 
+        }
+        else if( row + ship->length > board->row - 1 )
+        {
+            ship->set_values( row, col, 'V', 2 );
+            return ship;
+        }
     }
-    else if( ( row - ( ship->length - 1 ) >= 0 ) and ( board->matrix[row - ( ship->length - 1 )][col] == "#"  )  ) // Testa se a posição atual menos o resto do barco ultrapassa a borda esquerda da matriz ou se toca em outro barco.
+    else if( ( row - ( ship->length - 1 ) >= 0 ) and ( board->matrix[row - ( ship->length - 1 ) ][col] == "~"  )  ) // Testa se a posição atual menos o resto do barco ultrapassa a borda esquerda da matriz ou se toca em outro barco.
     {
-        ship->set_values( row, col, 'V', -2 );
-        return ship;
+        if( ( row - ship->length >= 0 ) and ( board->matrix[row - ship->length][col] == "~" ) )
+        {
+            ship->set_values( row, col, 'V', -2 );
+            return ship;
+        }
+        else if( row - ship->length < 0 )
+        {
+            ship->set_values( row, col, 'V', -2 );
+            return ship;
+        }
     }
-    else if( ( col + ship->length - 1 <= board->column - 1 ) and ( board->matrix[row][col + ship->length - 1] == "#" ) ) // Testa se a posição atual mais o resto do barco ultrapassa a borda superiou ou toca em outro barco.
+    else if( ( col + ship->length - 1 <= board->column - 1 ) and ( board->matrix[row][col + ship->length - 1] == "~" ) ) // Testa se a posição atual mais o resto do barco ultrapassa a borda superiou ou toca em outro barco.
     {
-        ship->set_values( row, col, 'H', 1 );
-        return ship;
+        if( ( col + ship->length <= board->column - 1 ) and ( board->matrix[row][col + ship->length] == "~" ) ) 
+        {
+            ship->set_values( row, col, 'H', 1 );
+            return ship;
+        }
+        else if( col + ship->length > board->column - 1 )
+        {
+            ship->set_values( row, col, 'H', 1 );
+            return ship;
+        }
     }
-    else if( ( col - ( ship->length - 1 ) >= 0) and ( board->matrix[row][col - ( ship->length - 1 )] == "#" ) ) // Testa se a posição atual mais o resto do barco ultrapassa a borda inferior ou toca em outro barco.
+    else if( ( col - ( ship->length - 1 ) >= 0) and ( board->matrix[row][col - ( ship->length - 1 )] == "~" ) ) // Testa se a posição atual mais o resto do barco ultrapassa a borda inferior ou toca em outro barco.
     {
-        ship->set_values( row, col, 'H', -1 );
-        return ship;
+        if( ( col - ship->length >= 0 ) and ( board->matrix[row][col - ship->length] == "~" ) )
+        {
+            ship->set_values( row, col, 'H', -1 );
+            return ship; 
+        }
+        else if( col - ship->length < 0 )
+        {
+            ship->set_values( row, col, 'H', -1 );
+            return ship;
+        }
     }
 
     ship->set_values( row, col, 'D', 0 ); // nenhuma posição válida, então a posição é negada.
@@ -65,12 +104,7 @@ bool aux_positioning_horizontal( Board *board, int row, int col, Ship ship )
                         continue;
                     }
 
-                    if( i == row and (j >= col and j <= col + ship.length - 1 ) )
-                    {
-                        continue;
-                    }
-
-                    if( board->matrix[i][j] != "#" )
+                    if( board->matrix[i][j] != "~" )
                     {
                         return false;
                     }
@@ -88,11 +122,7 @@ bool aux_positioning_horizontal( Board *board, int row, int col, Ship ship )
                       continue;
                   }
 
-                  if( i == row and ( j <= col or j > col - ship.length ) )
-                  {
-                      continue;
-                  }
-                  if( board->matrix[i][j] != "#" )
+                  if( board->matrix[i][j] != "~" )
                   {
                       return false;
                   }
@@ -125,12 +155,8 @@ bool aux_positioning_vertical( Board *board, int row, int col, Ship ship )
                         continue;
                     }
 
-                    if( j == col and (i >= row and i <= row + ship.length - 1 ) )
-                    {
-                        continue;
-                    }
 
-                    if( board->matrix[i][j] != "#" )
+                    if( board->matrix[i][j] != "~" )
                     {
                         return false;
                     }
@@ -143,17 +169,12 @@ bool aux_positioning_vertical( Board *board, int row, int col, Ship ship )
             {
                 for( int j = col - 1; j <= col + 1 ; j++ )
                 {
-                  if( i < 0 or i > board->row - 1 or j < 0 or j > board->column - 1 )
-                  {
-                      continue;
-                  }
-
-                  if( j == col and ( i <= row and i > row - ship.length ) )
+                    if( i < 0 or i > board->row - 1 or j < 0 or j > board->column - 1 )
                     {
-                        continue;
+                       continue;
                     }
 
-                    if( board->matrix[i][j] != "#" )
+                    if( board->matrix[i][j] != "~" )
                     {
                         return false;
                     }
@@ -197,9 +218,7 @@ Board *create_Board( Board *board, size_t row, size_t col )
     {
         permission = false;
 
-        int debugger = 0;
-
-        while(/* debugger == 0*/permission == false )
+        while( permission == false )
         {
             // srand( time( NULL ) ); //controlar a seed da função rand para que não se repita.
             x = rand() % row;
@@ -208,7 +227,7 @@ Board *create_Board( Board *board, size_t row, size_t col )
 
             // primeira verificação sobre a coordenada escolhida.
             control = validation( board, x, y, &board->armada[vec] );
-
+            std::cout << "\n pos validation\n";
             if( control == false )
             {
                 std::cout << "\n 1 if aqui\n";
@@ -218,11 +237,19 @@ Board *create_Board( Board *board, size_t row, size_t col )
 
             // identificar a orientação do barco.
             board->armada[vec] = *val_Orientation( board, x, y, &board->armada[vec] );
-
+            std::cout << "\n pos val orientation\n ";
             if( board->armada[vec].orientation == 'D')
             {
                 std::cout << "\n 2 if aqui\n";
                 permission = false;
+                continue;
+            }
+
+
+            if( ( board->armada[vec].length == 1 ) and ( board->armada[vec].ID = 'S' ) ) // o submarino necessita apenas uma verificação, após ela ja pode ser posicionado.
+            {
+                board->set_position_submarine( &board->armada[vec] );
+                permission = true;
                 continue;
             }
 
