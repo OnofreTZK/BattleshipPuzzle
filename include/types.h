@@ -73,27 +73,61 @@ class Board
            for( int i = 0; i < row; i++ )
            {
               for( int j = 0; j < column; j++ )
-                 matrix[i][j] = "#";
+                 matrix[i][j] = "~";
            }
 
         }
 
+        //funçao para plotar o submarino, pois não requer um laço.
+        void set_position_submarine( Ship *ship )
+        {
+            matrix[ship->sRow][ship->sCol] = "⬤";
+        }
+
+        //função que será chamada após todos os testes para inserir o barco.
         void set_position( Ship *ship )
         {
+            if( ship->length == 1 and ship->ID == 'S')
+            {
+                matrix[ship->sRow][ship->sCol] = "⬤";
+            }
+
             if( ship->orientation == 'H' )
             {
                 if( ship->direction == 1 )
                 {
                     for( int j = ship->sCol; j < ship->sCol + ship->length; j++ )
                     {
-                        matrix[ship->sRow][j] = ship->ID;
+                        if( j == ship->sCol )
+                        {
+                            matrix[ship->sRow][j] = "◀";
+                        }
+                        else if( j == ship->sCol + ship->length - 1 )
+                        {
+                            matrix[ship->sRow][j] = "▶";
+                        }
+                        else
+                        {
+                            matrix[ship->sRow][j] = "■";
+                        }
                     }
                 }
                 else if( ship->direction == -1 )
                 { 
                     for( int j = ship->sCol; j > ship->sCol - ship->length; j-- )
-                    {
-                        matrix[ship->sRow][j] = ship->ID;
+                    { 
+                        if( j == ship->sCol )
+                        {
+                            matrix[ship->sRow][j] = "▶";
+                        }
+                        else if( j == ship->sCol - ( ship->length - 1 ) )
+                        {
+                            matrix[ship->sRow][j] = "◀";
+                        }
+                        else
+                        {
+                            matrix[ship->sRow][j] = "■";
+                        }
                     }
                 }
             }
@@ -103,18 +137,43 @@ class Board
                 {
                     for( int i = ship->sRow; i < ship->sRow + ship->length; i++ )
                     {
-                        matrix[i][ship->sCol] = ship->ID;
+                        if( i == ship->sRow )
+                        {
+                            matrix[i][ship->sCol] = "▲";
+                        }
+                        else if( i == ship->sRow + ship->length - 1 )
+                        {
+                            matrix[i][ship->sCol] = "▼";
+                        }
+                        else
+                        {
+                            matrix[i][ship->sCol] = "■";
+                        }
                     }
                 }
                 else if( ship->direction == -2 )
                 {
                     for( int i = ship->sRow; i > ship->sRow - ship->length; i-- )
-                    {
-                        matrix[i][ship->sCol] = ship->ID;
+                    { 
+                        if( i == ship->sRow )
+                        {
+                            matrix[i][ship->sCol] = "▼";
+                        }
+                        else if( i == ship->sRow - ( ship->length - 1 ) )
+                        {
+                            matrix[i][ship->sCol] = "▲";
+                        }
+                        else
+                        {
+                            matrix[i][ship->sCol] = "■";
+                        }
                     }
-                } 
-            }
+                }
+             }
+
         }
+
+
 
 };
 
