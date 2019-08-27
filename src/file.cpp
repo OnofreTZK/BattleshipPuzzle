@@ -7,6 +7,7 @@ void writeBPMatrix( std::vector < int > &vector, int puzNum, int rowNum, int col
 	file << puzNum << std::endl;
 
 	file << rowNum
+		 << " "
 		 << colNum
 		 << std::endl;
 
