@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/bpg.dir/src/file.cpp.o"
+  "CMakeFiles/bpg.dir/src/helper.cpp.o"
   "CMakeFiles/bpg.dir/src/main.cpp.o"
   "CMakeFiles/bpg.dir/src/ships.cpp.o"
-  "CMakeFiles/bpg.dir/src/verify.cpp.o"
   "bpg"
   "bpg.pdb"
 )

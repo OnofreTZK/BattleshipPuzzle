@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-../include/ships.h
-verify.h
-../include/verify.h
+../include/helper.h
+types.h
+../include/types.h
 
 ../include/types.h
 iostream
@@ -38,11 +38,7 @@ random
 chrono
 -
 
-../include/verify.h
-types.h
-../include/types.h
-
-/Users/onofret/Documents/BattleshipPuzzle/src/ships.cpp
-ships.h
-/Users/onofret/Documents/BattleshipPuzzle/src/ships.h
+/Users/onofret/Documents/BattleshipPuzzle/src/helper.cpp
+helper.h
+/Users/onofret/Documents/BattleshipPuzzle/src/helper.h
 

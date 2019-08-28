@@ -5,9 +5,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/onofret/Documents/BattleshipPuzzle/src/file.cpp" "/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles/bpg.dir/src/file.cpp.o"
+  "/Users/onofret/Documents/BattleshipPuzzle/src/helper.cpp" "/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles/bpg.dir/src/helper.cpp.o"
   "/Users/onofret/Documents/BattleshipPuzzle/src/main.cpp" "/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles/bpg.dir/src/main.cpp.o"
   "/Users/onofret/Documents/BattleshipPuzzle/src/ships.cpp" "/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles/bpg.dir/src/ships.cpp.o"
-  "/Users/onofret/Documents/BattleshipPuzzle/src/verify.cpp" "/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles/bpg.dir/src/verify.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

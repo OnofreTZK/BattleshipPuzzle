@@ -150,6 +150,33 @@ src/file.cpp.s:
 	$(MAKE) -f CMakeFiles/bpg.dir/build.make CMakeFiles/bpg.dir/src/file.cpp.s
 .PHONY : src/file.cpp.s
 
+src/helper.o: src/helper.cpp.o
+
+.PHONY : src/helper.o
+
+# target to build an object file
+src/helper.cpp.o:
+	$(MAKE) -f CMakeFiles/bpg.dir/build.make CMakeFiles/bpg.dir/src/helper.cpp.o
+.PHONY : src/helper.cpp.o
+
+src/helper.i: src/helper.cpp.i
+
+.PHONY : src/helper.i
+
+# target to preprocess a source file
+src/helper.cpp.i:
+	$(MAKE) -f CMakeFiles/bpg.dir/build.make CMakeFiles/bpg.dir/src/helper.cpp.i
+.PHONY : src/helper.cpp.i
+
+src/helper.s: src/helper.cpp.s
+
+.PHONY : src/helper.s
+
+# target to generate assembly for a file
+src/helper.cpp.s:
+	$(MAKE) -f CMakeFiles/bpg.dir/build.make CMakeFiles/bpg.dir/src/helper.cpp.s
+.PHONY : src/helper.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -204,33 +231,6 @@ src/ships.cpp.s:
 	$(MAKE) -f CMakeFiles/bpg.dir/build.make CMakeFiles/bpg.dir/src/ships.cpp.s
 .PHONY : src/ships.cpp.s
 
-src/verify.o: src/verify.cpp.o
-
-.PHONY : src/verify.o
-
-# target to build an object file
-src/verify.cpp.o:
-	$(MAKE) -f CMakeFiles/bpg.dir/build.make CMakeFiles/bpg.dir/src/verify.cpp.o
-.PHONY : src/verify.cpp.o
-
-src/verify.i: src/verify.cpp.i
-
-.PHONY : src/verify.i
-
-# target to preprocess a source file
-src/verify.cpp.i:
-	$(MAKE) -f CMakeFiles/bpg.dir/build.make CMakeFiles/bpg.dir/src/verify.cpp.i
-.PHONY : src/verify.cpp.i
-
-src/verify.s: src/verify.cpp.s
-
-.PHONY : src/verify.s
-
-# target to generate assembly for a file
-src/verify.cpp.s:
-	$(MAKE) -f CMakeFiles/bpg.dir/build.make CMakeFiles/bpg.dir/src/verify.cpp.s
-.PHONY : src/verify.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -243,15 +243,15 @@ help:
 	@echo "... src/file.o"
 	@echo "... src/file.i"
 	@echo "... src/file.s"
+	@echo "... src/helper.o"
+	@echo "... src/helper.i"
+	@echo "... src/helper.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/ships.o"
 	@echo "... src/ships.i"
 	@echo "... src/ships.s"
-	@echo "... src/verify.o"
-	@echo "... src/verify.i"
-	@echo "... src/verify.s"
 .PHONY : help
 
 

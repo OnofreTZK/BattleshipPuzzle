@@ -96,25 +96,25 @@ CMakeFiles/bpg.dir/src/file.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bpg.dir/src/file.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/onofret/Documents/BattleshipPuzzle/src/file.cpp -o CMakeFiles/bpg.dir/src/file.cpp.s
 
-CMakeFiles/bpg.dir/src/verify.cpp.o: CMakeFiles/bpg.dir/flags.make
-CMakeFiles/bpg.dir/src/verify.cpp.o: ../src/verify.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/bpg.dir/src/verify.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bpg.dir/src/verify.cpp.o -c /Users/onofret/Documents/BattleshipPuzzle/src/verify.cpp
+CMakeFiles/bpg.dir/src/helper.cpp.o: CMakeFiles/bpg.dir/flags.make
+CMakeFiles/bpg.dir/src/helper.cpp.o: ../src/helper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/bpg.dir/src/helper.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/bpg.dir/src/helper.cpp.o -c /Users/onofret/Documents/BattleshipPuzzle/src/helper.cpp
 
-CMakeFiles/bpg.dir/src/verify.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bpg.dir/src/verify.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/onofret/Documents/BattleshipPuzzle/src/verify.cpp > CMakeFiles/bpg.dir/src/verify.cpp.i
+CMakeFiles/bpg.dir/src/helper.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bpg.dir/src/helper.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/onofret/Documents/BattleshipPuzzle/src/helper.cpp > CMakeFiles/bpg.dir/src/helper.cpp.i
 
-CMakeFiles/bpg.dir/src/verify.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bpg.dir/src/verify.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/onofret/Documents/BattleshipPuzzle/src/verify.cpp -o CMakeFiles/bpg.dir/src/verify.cpp.s
+CMakeFiles/bpg.dir/src/helper.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bpg.dir/src/helper.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/onofret/Documents/BattleshipPuzzle/src/helper.cpp -o CMakeFiles/bpg.dir/src/helper.cpp.s
 
 # Object files for target bpg
 bpg_OBJECTS = \
 "CMakeFiles/bpg.dir/src/main.cpp.o" \
 "CMakeFiles/bpg.dir/src/ships.cpp.o" \
 "CMakeFiles/bpg.dir/src/file.cpp.o" \
-"CMakeFiles/bpg.dir/src/verify.cpp.o"
+"CMakeFiles/bpg.dir/src/helper.cpp.o"
 
 # External object files for target bpg
 bpg_EXTERNAL_OBJECTS =
@@ -122,7 +122,7 @@ bpg_EXTERNAL_OBJECTS =
 bpg: CMakeFiles/bpg.dir/src/main.cpp.o
 bpg: CMakeFiles/bpg.dir/src/ships.cpp.o
 bpg: CMakeFiles/bpg.dir/src/file.cpp.o
-bpg: CMakeFiles/bpg.dir/src/verify.cpp.o
+bpg: CMakeFiles/bpg.dir/src/helper.cpp.o
 bpg: CMakeFiles/bpg.dir/build.make
 bpg: CMakeFiles/bpg.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/onofret/Documents/BattleshipPuzzle/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bpg"

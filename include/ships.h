@@ -1,7 +1,7 @@
 #ifndef SHIPS_H
 #define SHIPS_H
 
-#include "verify.h"
+#include "helper.h"
 
 using std::vector;
 

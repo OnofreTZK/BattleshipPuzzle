@@ -3,24 +3,24 @@
 
 CMakeFiles/bpg.dir/src/file.cpp.o
  ../include/file.h
+ ../include/helper.h
  ../include/manager.h
  ../include/ships.h
  ../include/types.h
- ../include/verify.h
  /Users/onofret/Documents/BattleshipPuzzle/src/file.cpp
+CMakeFiles/bpg.dir/src/helper.cpp.o
+ ../include/helper.h
+ ../include/types.h
+ /Users/onofret/Documents/BattleshipPuzzle/src/helper.cpp
 CMakeFiles/bpg.dir/src/main.cpp.o
  ../include/file.h
+ ../include/helper.h
  ../include/manager.h
  ../include/ships.h
  ../include/types.h
- ../include/verify.h
  /Users/onofret/Documents/BattleshipPuzzle/src/main.cpp
 CMakeFiles/bpg.dir/src/ships.cpp.o
+ ../include/helper.h
  ../include/ships.h
  ../include/types.h
- ../include/verify.h
  /Users/onofret/Documents/BattleshipPuzzle/src/ships.cpp
-CMakeFiles/bpg.dir/src/verify.cpp.o
- ../include/types.h
- ../include/verify.h
- /Users/onofret/Documents/BattleshipPuzzle/src/verify.cpp

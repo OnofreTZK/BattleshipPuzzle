@@ -68,7 +68,8 @@ void verify_vertical_up( Board *board, int row, int col, Ship *ship )
 	 *	exceeds the left border of the matrix or touches another one
 	 */
     if( ( row - ( ship->length - 1 ) >= 0 ) and ( board->matrix[row - ( ship->length - 1 ) ][col] == "~"  ) )
-		if( ( row - ship->length >= 0 ) and ( board->matrix[row - ship->length][col] == "~" ) )
+    {
+        if( ( row - ship->length >= 0 ) and ( board->matrix[row - ship->length][col] == "~" ) ) 
         {
             ship->set_values( row, col, 'V', -2 );
         }
@@ -82,7 +83,6 @@ void verify_vertical_up( Board *board, int row, int col, Ship *ship )
         }
         
     }
-
     else
     {
         ship->set_values( row, col, 'N', 0 );
@@ -309,7 +309,7 @@ int generate_random_number( int range )
 //! creates the puzzle 
 Board *create_Board( Board *board, int row, int col )
 {
-	//! iterators that'll have their value randomly chosen
+	  int x, y;//! iterators that'll have their value randomly chosen
 
     bool permission, control; //! controls the verification loop
 
