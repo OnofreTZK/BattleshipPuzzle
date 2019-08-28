@@ -1,6 +1,9 @@
 #ifndef SHIPS_H
 #define SHIPS_H
 
+
+// Made by Sandra Bastos & Tiago Onofre 
+
 #include "helper.h"
 
 using std::vector;

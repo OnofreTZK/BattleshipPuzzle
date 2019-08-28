@@ -1,5 +1,7 @@
 #include "file.h"
 
+// Made by Sandra Bastos & Tiago Onofre
+
 //! writes the armada-format puzzles into a file
 void writeBPArmada( Manager manager, int puzNum )
 {

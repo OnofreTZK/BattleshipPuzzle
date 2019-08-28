@@ -1,6 +1,8 @@
 #ifndef TYPES_H
 #define TYPES_H
 
+// Made by Sandra Bastos & Tiago Onofre 
+ 
 #include <iostream>
 #include <iomanip>
 #include <sstream>

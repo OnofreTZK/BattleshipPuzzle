@@ -1,5 +1,7 @@
 #include "ships.h"
 
+// Made by Sandra Bastos & Tiago Onofre
+
 using std::vector;
 
 /*! This function verifies each detail concerning the ship's positioning,
@@ -176,7 +178,9 @@ void val_Orientation( Board *board, int row, int col, Ship *ship )
 }
 
 
-//! 
+/*! Verifies each space in the ship matrix (containing the shadow area) so that it
+ * 	avoids ship "collision" horizontally
+ */
 bool aux_positioning_horizontal( Board *board, int row, int col, Ship ship )
 {
     if( ship.orientation == 'H' )
@@ -225,9 +229,9 @@ bool aux_positioning_horizontal( Board *board, int row, int col, Ship ship )
 
 
 
-
-
-
+/*! Verifies each space in the ship matrix (containing the shadow area) so that it
+ * 	avoids ship "collision" vertically
+ */
 bool aux_positioning_vertical( Board *board, int row, int col, Ship ship )
 {
     if( ship.orientation == 'V' )
@@ -274,7 +278,6 @@ bool aux_positioning_vertical( Board *board, int row, int col, Ship ship )
 
     return true;
 }
-
 
 
 bool val_positioning( Board *board, int row, int col, Ship ship )

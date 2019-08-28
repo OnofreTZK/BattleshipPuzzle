@@ -1,5 +1,6 @@
 #include "helper.h"
 
+// Made by Sandra Bastos & Tiago Onofre
 
 // Function to print '--help' guide for user.
 void printHelp()

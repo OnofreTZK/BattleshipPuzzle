@@ -1,6 +1,8 @@
 #ifndef MNG_H
 #define MNG_H
 
+// Made by Sandra Bastos & Tiago Onofre 
+
 #include "ships.h"
 
 using std::vector;

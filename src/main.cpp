@@ -1,6 +1,7 @@
 #include "helper.h"
 #include "file.h"
 
+// Made by Sandra Bastos & Tiago Onofre
 
 #define MAX_ROW 16
 #define MAX_COL 16

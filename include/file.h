@@ -1,6 +1,8 @@
 #ifndef FILE_H
 #define FILE_H
 
+// Made by Sandra Bastos & Tiago Onofre 
+
 #include "manager.h" 
 
 //! This library contains all functions regarding file manipulation.
