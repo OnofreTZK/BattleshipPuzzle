@@ -1,5 +1,5 @@
-#ifndef VRFY_H
-#define VRFY_H
+#ifndef HELPER_H
+#define HELPER_H
 
 #include "types.h"
 
