@@ -3,15 +3,16 @@
 
 #include "manager.h" 
 
-/*! This library contains all functions regarding file manipulation.
-*/ 
+//! This library contains all functions regarding file manipulation.
+ 
 
-// writeBPMatrix writes the file containing the matrix-format puzzles
+//! writeBPMatrix writes the file containing the matrix-format puzzles
 void writeBPMatrix( Board board, int puzNum, int rowNum, int colNum );
 
-// writeBPArmada writes the file containing the armada-format puzzles
+//! writeBPArmada writes the file containing the armada-format puzzles
 void writeBPArmada( Manager manager, int puzNum );
 
+//! puzzle_Generator generates the puzzles
 void puzzle_Generator( int row, int col, int games );
 
 #endif

@@ -20,18 +20,19 @@ using std::vector;
 class Ship
 {
     public:
-        char ID; // Identificar o tipo do barco --> B: Battleship | D: Destroyer | C: Cruiser | S: Submarine.
-        int length; // tamanho do barco
-        int sRow, sCol; // Coordenadas do inicio do barco. 
-        char orientation; // direção do barco ( horizontal, vertical e nula (U) no caso do submarino.
-        int direction; // informar para a função de preenchimento em qual direção percorrer.
+        char ID; //! ID of the ship type --> B: Battleship | D: Destroyer | C: Cruiser | S: Submarine.
+        int length; //! ship's size
+        int sRow, sCol; //! the ship's first piece coordinates 
+        char orientation; //! the ship's orientation (horizontal, vertical and undefined)
+        int direction; //! which direction the ship should be filled 
 
         Ship( char sID, int sLength )
         {
             ID = sID;
             length = sLength;
         }
-       // função para inserir os valores das coordenadas e da orientação do barco --> será usada no processo de criação do tabuleiro.
+
+        //! this function inserts the values from the coordinates and ship 
         void set_values( int sX, int sY, char sOrientation, int sDirection )
         {
             sRow = sX;
@@ -60,7 +61,7 @@ class Board
 
             return false;
         }
-        // vector para guardar toda a armada e auxiliar no posicionamento de cada barco.
+        //! vector that stores the entire armada and helps with the positioning of each ship
         vector< Ship > armada = {
         Ship { 'B', 4 },
         Ship { 'D', 3 },
@@ -73,16 +74,16 @@ class Board
         Ship { 'S', 1 },
         Ship { 'S', 1 } };
 
-        int row, column; // valores das linhas e colunas do tabuleiro.
+        int row, column; //! values of rows and columns of the board 
 
-        vector< vector < std::string > > matrix; // corpo do tabuleiro.
+        vector< vector < std::string > > matrix; //! body of the board 
 
         Board( int bRow, int bColumn )
         {
             row = bRow;
             column = bColumn;
 
-            // "alocando" o vector de vector usando o método resize().  
+            // "allocating" the vector of vector using the resize() method.  
             vector< std::string > mat_rows;
             mat_rows.resize( column );
             matrix.resize( row, mat_rows );
@@ -99,13 +100,16 @@ class Board
           column = 0;
         }
 
-        //funçao para plotar o submarino, pois não requer um laço.
+        //! plots the submarine, it doesn't require a loop 
         void set_position_submarine( Ship *ship )
         {
             matrix[ship->sRow][ship->sCol] = "⬤";
         }
 
-        //função que será chamada após todos os testes para inserir o barco.
+        /*! this function will be called after all the tests in order to
+		 *  insert the ship
+		 */
+
         void set_position( Ship *ship )
         {
             if( ship->length == 1 and ship->ID == 'S')
@@ -191,13 +195,7 @@ class Board
                     }
                 }
              }
-
         }
-
-
-
 };
 
-
 #endif
-

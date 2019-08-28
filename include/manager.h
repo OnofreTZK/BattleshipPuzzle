@@ -5,6 +5,9 @@
 
 using std::vector;
 
+/*! This class will generate the battleship
+ *  boards 
+ */
 class Manager{
 
     public:
@@ -14,7 +17,7 @@ class Manager{
         Manager( int bRow, int bColumn, int Games )
         {
 
-            // "alocando" o vector de vector usando o método resize()
+            // "allocating" the vector of vectors using the method resize()
             puzzles.resize( Games );
 
            for( int i = 0; i < puzzles.size(); i++ )

@@ -1,5 +1,6 @@
 #include "file.h"
 
+//! writes the armada-format puzzles into a file
 void writeBPArmada( Manager manager, int puzNum )
 {
 
@@ -21,15 +22,14 @@ void writeBPArmada( Manager manager, int puzNum )
 
     file.close();
 
+	std::cout << "File saved sucessfully! ;)" << std::endl;
 }
 
-
-
+//! writes the matrix-format puzzles into another file 
 void writeBPMatrix( Manager manager, int puzNum, int rowNum, int colNum )
 {
 	std::ofstream file("bpgMatrix.txt");
 	
-
     for( int vec = 0; vec < manager.puzzles.size(); vec++ )
     {
 	      file << puzNum << std::endl;
@@ -56,7 +56,7 @@ void writeBPMatrix( Manager manager, int puzNum, int rowNum, int colNum )
 	std::cout << "File saved sucessfully! ;)" << std::endl;
 }
 
-
+//! Verifies whether the puzzles are the same or not
 bool verify_Board( std::vector< Board > &puzzles, Board board, int posi )
 {
     for( int vec = 0; vec < posi; vec++ )
@@ -70,7 +70,7 @@ bool verify_Board( std::vector< Board > &puzzles, Board board, int posi )
     return true;
 } 
 
-
+//! Generates the puzzles 
 void puzzle_Generator( int row, int col, int games )
 {
    Manager manager( row, col, games);
