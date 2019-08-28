@@ -10,6 +10,10 @@
 types.h
 ../include/types.h
 
+../include/ships.h
+helper.h
+../include/helper.h
+
 ../include/types.h
 iostream
 -
@@ -38,7 +42,7 @@ random
 chrono
 -
 
-/Users/onofret/Documents/BattleshipPuzzle/src/helper.cpp
-helper.h
-/Users/onofret/Documents/BattleshipPuzzle/src/helper.h
+/Users/onofret/Documents/BattleshipPuzzle/src/ships.cpp
+ships.h
+/Users/onofret/Documents/BattleshipPuzzle/src/ships.h
 

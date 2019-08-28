@@ -331,7 +331,6 @@ Board *create_Board( Board *board, int row, int col )
                 vec = vec - 2;
                 continue;
             }
-            std::cout << "\nLINHAS: "<< board->row << "\nCOLUNAS: " << board->column << "\nCONTADOR!!!!! " << count << std::endl;
             count++;
 
            	//! controls the generate_random_number seed in order to avoid repetition
@@ -342,8 +341,7 @@ Board *create_Board( Board *board, int row, int col )
             control = validation( board, x, y, &board->armada[vec] );
             
 			if( control == false )
-            {
-                std::cout << "\n 1 if aqui\n";
+            {;
                 permission = false;
                 continue;
             }
@@ -353,7 +351,6 @@ Board *create_Board( Board *board, int row, int col )
             
 			if( board->armada[vec].orientation == 'D')
             {
-                std::cout << "\n 2 if aqui\n";
                 permission = false;
                 continue;
             }
