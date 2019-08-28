@@ -25,13 +25,22 @@ make
 After the last command, two distinct files shall be generated. 
 
 ## Expected Output
+The expected output for this program is 2 files containing the following puzzle formats:
+
+* Matrix format:
+<img src="./images/BPMatrix.png" width=150>
+* Armada format:
+
+<img src="./images/BPArmada.png" width=60>
 
 ## Possible Errors
+* **Submarine positioning:** depending on the size of the board's size, the complete group of submarines might not appear. Due to that, the submarines' coordinates might show absurd numbers.
 
 ## Limitations 
+* In puzzles below 9 x 9, some submarines may not appear.
 
 ## Autorship and Collaboration
 
 * **Sandra Bastos** - [unzerstort](https://github.com/unzerstort)
-
 * **Tiago Onofre** - [OnofreTZK](https://github.com/OnofreTZK)
+
