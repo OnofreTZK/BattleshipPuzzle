@@ -31,7 +31,7 @@ The expected output for this program is 2 files containing the following puzzle 
 <img src="./images/BPMatrix.png" width=450>
 * Armada format:
 
-<img src="./images/BPArmada.png" width=60>
+<img src="./images/BPArmada.png" width=180>
 
 ## Possible Errors
 * **Submarine positioning:** depending on the size of the board's size, the complete group of submarines might not appear. Due to that, the submarines' coordinates might show absurd numbers.
