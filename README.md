@@ -28,7 +28,7 @@ After the last command, two distinct files shall be generated.
 The expected output for this program is 2 files containing the following puzzle formats:
 
 * Matrix format:
-<img src="./images/BPMatrix.png" width=150>
+<img src="./images/BPMatrix.png" width=450>
 * Armada format:
 
 <img src="./images/BPArmada.png" width=60>
