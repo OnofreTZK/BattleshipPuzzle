@@ -16,11 +16,11 @@ Note that the ships' cells are juxtaposed and may be arranged either horizontall
 
 In order to run this program, you'll need to follow these steps at the project's root file:
 
-```
-cmake -S. -Bbuild
-cd build
-make
-./bpg [<options>] <number_of_puzzles>
+```bash
+$ cmake -S. -Bbuild
+$ cd build
+$ make
+$ ./bpg [<options>] <number_of_puzzles>
 ```
 After the last command, two distinct files shall be generated. 
 
